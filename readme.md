@@ -2,10 +2,18 @@
 
 *A simple POC of capturing video and upload to Google Cloud Storage Bucket.*
 
+## Modules Used
+
+* [react-native-camera](https://github.com/react-native-community/react-native-camera) - record video
+* [react-native-firebase](https://rnfirebase.io/docs/v3.2.x/installation/initial-setup) - upload video to cloud bucket
+* [react-native-fs](https://github.com/itinance/react-native-fs) - remove file from device after uploaded
+
+
 ## Installation
 
 * [react-native-camera](https://github.com/react-native-community/react-native-camera) (use manual installation, **react-native link** is sooooo broken)
 * [react-native-firebase](https://rnfirebase.io/docs/v3.2.x/installation/initial-setup)
+* [react-native-fs](https://github.com/itinance/react-native-fs) (link manually)
 
 ## Things to be aware of during installation
 * Make sure all face detector frameworks are included and properly linked.
