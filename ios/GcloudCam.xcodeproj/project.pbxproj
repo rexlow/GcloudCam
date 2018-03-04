@@ -95,6 +95,7 @@
 		8407A849204A5C6600E46245 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8407A7FD204A5C6500E46245 /* GoogleUtilities.framework */; };
 		8407A84B204A5C7600E46245 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8407A84A204A5C7600E46245 /* AddressBook.framework */; };
 		8407A9A7204A7B0900E46245 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8407A97F204A7B0900E46245 /* GoogleService-Info.plist */; };
+		8442392A204BE19F003CC380 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84423927204BE171003CC380 /* libRNFS.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		C419DB0BC13E4B3D969E6F93 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 167B92C5DB8447ADADAA749B /* libRNFirebase.a */; };
 		DFEDBB855D8C07CE1FE392D0 /* libPods-GcloudCam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D882FD6D2FFB61C1AD54BA /* libPods-GcloudCam.a */; };
@@ -374,6 +375,20 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNFirebase;
 		};
+		84423926204BE171003CC380 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 844238FA204BE171003CC380 /* RNFS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F12AFB9B1ADAF8F800E0535D;
+			remoteInfo = RNFS;
+		};
+		84423928204BE171003CC380 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 844238FA204BE171003CC380 /* RNFS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6456441F1EB8DA9100672408;
+			remoteInfo = "RNFS-tvOS";
+		};
 		ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
@@ -435,6 +450,7 @@
 		8407A7FD204A5C6500E46245 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
 		8407A84A204A5C7600E46245 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		8407A97F204A7B0900E46245 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../src/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		844238FA204BE171003CC380 /* RNFS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFS.xcodeproj; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; };
 		937BB645F76649FD940030C3 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
 		AC1E10107637D5135217724C /* Pods-GcloudCam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GcloudCam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GcloudCam/Pods-GcloudCam.debug.xcconfig"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
@@ -446,6 +462,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8442392A204BE19F003CC380 /* libRNFS.a in Frameworks */,
 				8407A84B204A5C7600E46245 /* AddressBook.framework in Frameworks */,
 				8407A7D3204A5BC200E46245 /* libRNCamera.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
@@ -659,6 +676,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				844238FA204BE171003CC380 /* RNFS.xcodeproj */,
 				8407A798204A5BA200E46245 /* RNCamera.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -942,6 +960,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		844238FB204BE171003CC380 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84423927204BE171003CC380 /* libRNFS.a */,
+				84423929204BE171003CC380 /* libRNFS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8F0BE441FF480F42A025203C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1115,6 +1142,10 @@
 				{
 					ProductGroup = 8407A942204A644500E46245 /* Products */;
 					ProjectRef = 937BB645F76649FD940030C3 /* RNFirebase.xcodeproj */;
+				},
+				{
+					ProductGroup = 844238FB204BE171003CC380 /* Products */;
+					ProjectRef = 844238FA204BE171003CC380 /* RNFS.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1391,6 +1422,20 @@
 			fileType = archive.ar;
 			path = libRNFirebase.a;
 			remoteRef = 8407A945204A644500E46245 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		84423927204BE171003CC380 /* libRNFS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFS.a;
+			remoteRef = 84423926204BE171003CC380 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		84423929204BE171003CC380 /* libRNFS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFS.a;
+			remoteRef = 84423928204BE171003CC380 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */ = {

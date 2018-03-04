@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 import firebase from 'react-native-firebase';
 import { RNCamera } from 'react-native-camera';
+var RNFS = require('react-native-fs');
 
 const landmarkSize = 2;
 
@@ -26,7 +27,7 @@ export default class CameraScreen extends React.Component {
     faces: [],
     cameraReady: false,
     recording: false,
-    firebaseStorageRef: "gcloudCamImage/image.mp4",
+    firebaseStorageRef: "gcloudCamImage",
     uploading: false,
     uploaded: false
   };
@@ -58,15 +59,29 @@ export default class CameraScreen extends React.Component {
 
   uploadMedia = content => {
     this.setState({ uploading: true, uploaded: false })
+    const randString = Math.random().toString(36).slice(-5);
     firebase.storage()
-      .ref(this.state.firebaseStorageRef)
+      .ref(`${this.state.firebaseStorageRef}/${randString}.mp4`)
       .putFile(content)
       .then(uploadedFile => {
+        this.checkIfFileExists(content)
         this.setState({ uploading: false, uploaded: true })
       })
       .catch(error => {
         this.setState({ uploading: false, uploaded: false })
       })
+  }
+
+  checkIfFileExists = file => {
+    RNFS.exists(file)
+      .then(() => this.removeFileFromPhone(file))
+      .catch(e => console.log(e))
+  }
+
+  removeFileFromPhone = file => {
+    RNFS.unlink(file)
+      .then(() => console.log("file removed"))
+      .catch(e => console.log(e))
   }
 
   takePicture = async = () => {
