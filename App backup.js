@@ -1,18 +1,29 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-import firebase from 'react-native-firebase';   // use to upload video
-import { RNCamera } from 'react-native-camera'; // use to save/retrieve to/from phone
+import firebase from 'react-native-firebase';
+import { RNCamera } from 'react-native-camera';
 var RNFS = require('react-native-fs');
 
 const landmarkSize = 2;
 
+const flashModeOrder = {
+  off: 'on',
+  on: 'auto',
+  auto: 'torch',
+  torch: 'off',
+};
+
 export default class CameraScreen extends React.Component {
 
   state = {
+    flash: 'off',
     autoFocus: 'on',
-    type: 'front', // front camera
+    type: 'front',
     ratio: '16:9',
+    ratios: [],
+    photoId: 1,
+    photos: [],
     faces: [],
     cameraReady: false,
     recording: false,
@@ -20,6 +31,29 @@ export default class CameraScreen extends React.Component {
     uploading: false,
     uploaded: false
   };
+
+  getRatios = async function() {
+    const ratios = await this.camera.getSupportedRatios();
+    return ratios;
+  };
+
+  toggleFacing() {
+    this.setState({
+      type: this.state.type === 'back' ? 'front' : 'back',
+    });
+  }
+
+  toggleFlash() {
+    this.setState({
+      flash: flashModeOrder[this.state.flash],
+    });
+  }
+
+  setRatio(ratio) {
+    this.setState({
+      ratio
+    });
+  }
 
   onCameraReady = () => this.setState({ cameraReady: true })
 
@@ -49,6 +83,14 @@ export default class CameraScreen extends React.Component {
       .then(() => console.log("file removed"))
       .catch(e => console.log(e))
   }
+
+  takePicture = async = () => {
+    if (this.camera) {
+      this.camera.takePictureAsync().then(data => {
+        this.uploadMedia(data.uri)
+      });
+    }
+  };
 
   recordVideo = async = () => {
     if (this.camera) {
@@ -153,6 +195,7 @@ export default class CameraScreen extends React.Component {
           flex: 1,
         }}
         type={this.state.type}
+        flashMode={this.state.flash}
         autoFocus={this.state.autoFocus}
         ratio={this.state.ratio}
         captureQuality={"high"}
